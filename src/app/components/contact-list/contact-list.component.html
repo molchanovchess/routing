@@ -1,0 +1,43 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <p class="h3 text-danger">Contacts List</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque tenetur excepturi quaerat vitae
+                exercitationem optio incidunt, expedita placeat quo praesentium, soluta perspiciatis consectetur,
+                inventore earum quidem ad a reiciendis. Ea.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover table-striped text-center">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th>Sno</th>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contact of contacts">
+                        <td>{{contact.login.uuid.substr(contact.login.uuid.length - 5)}}</td>
+                        <td>
+                            <img [src]="contact.picture.large" alt="" width="50" height="50">
+                        </td>
+                        <td>
+                            <a routerLink="/contacts/{{contact.login.uuid}}" class="text-danger">{{contact.name.first}} {{contact.name.last}}</a>
+                        </td>
+                        <td>{{contact.dob.age}} Yrs</td>
+                        <td>{{contact.email}}</td>
+                        <td>{{contact.location.city}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
